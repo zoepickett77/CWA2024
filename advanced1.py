@@ -37,3 +37,18 @@ temp = float(input("Enter the temperature. Can be anything from 1-40: "))
 
 predicted_wellbeing = predict_wellbeing(sound, light, temp)  
 print("\nThe Predicted Wellbeing Score for the values entered is", predicted_wellbeing)
+
+#Ar2
+#Question 1
+#What will your wellbeing be with low values of all three factors?
+print("-----------------------------------------------------------")
+print("What if?..Question One")
+print("Let's test what the wellbeing will be if the factor scores are very low")
+
+#Low values for all 3 factors
+sound_level = 2
+light_level = 70
+temp = 5
+
+wellbeing_if_lowscores = predict_wellbeing(sound_level, light_level, temp)  # Example values
+print("\n The low factors score wellbeing is", wellbeing_if_lowscores)
