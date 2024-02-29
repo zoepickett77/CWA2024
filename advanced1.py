@@ -11,18 +11,18 @@ file = pd.read_csv('advanced.csv')
 print(file)
 #ar1
 #defining x(independent variables affecting wellbeing) and y(dependent variable result)
-X = file[['sound_intensity', 'light_intensity', 'temp']]
-Y = file['avg_wellbeing']
-X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.2, random_state=0)
+factors = file[['sound_intensity', 'light_intensity', 'temp']]
+wellbeing = file['avg_wellbeing']
+factors_train, factors_test, wellbeing_train, wellbeing_test = train_test_split(factors, wellbeing, test_size=0.2, random_state=0)
 
 # Creating the Linear Regression model
 model = LinearRegression()
 
 # Fitting the model with the training data
-model.fit(X_train, Y_train)
+model.fit(factors_train, wellbeing_train)
 
 # Predicting mood scores for the test set
-Y_pred = model.predict(X_test)
+wellbeing_pred = model.predict(factors_test)
 
 print("model completed")
 
@@ -36,4 +36,4 @@ light = int(input("Enter light intensity. Can be any integer from 1-255: "))
 temp = float(input("Enter the temperature. Can be anything from 1-40: "))
 
 predicted_wellbeing = predict_wellbeing(sound, light, temp)  
-print("\nThe Predicted Wellbeing Score for the values entered is", predicted_wel
+print("\nThe Predicted Wellbeing Score for the values entered is", predicted_wellbeing)
