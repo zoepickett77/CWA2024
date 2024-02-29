@@ -3,6 +3,10 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 
+def predict_wellbeing(sound_level, light_level, temperature):
+    df = pd.DataFrame([[sound_level, light_level, temperature]], columns=['sound_intensity', 'light_intensity', 'temp'])
+    return model.predict(df)[0]
+
 file = pd.read_csv('advanced.csv')
 print(file)
 #ar1
@@ -24,9 +28,7 @@ print("model completed")
 
 print("Multiple Linear Regression Model Complete!")
 
-def predict_wellbeing(sound_level, light_level, temperature):
-    df = pd.DataFrame([[sound_level, light_level, temperature]], columns=['sound_intensity', 'light_intensity', 'temp'])
-    return model.predict(df)[0]
+
 
 print("Please enter the following questions")
 sound = int(input("Enter sound level. Can be any integer from 0-255: "))
