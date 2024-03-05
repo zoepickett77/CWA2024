@@ -2,6 +2,7 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
+import matplotlib.pyplot as plt
 
 def predict_wellbeing(sound_level, light_level, temperature):
     df = pd.DataFrame([[sound_level, light_level, temperature]], columns=['sound_intensity', 'light_intensity', 'temp'])
@@ -50,5 +51,34 @@ sound_level = 2
 light_level = 70
 temp = 5
 
-wellbeing_if_lowscores = predict_wellbeing(sound_level, light_level, temp)  # Example values
+wellbeing_if_lowscores = predict_wellbeing(sound_level, light_level, temp)  
 print("\n The low factors score wellbeing is", wellbeing_if_lowscores)
+
+#What will your wellbeing be with high values for all the 3 factors?
+print("-----------------------------------------------------------")
+print("What if?...Question Two")
+print("Let's test what the wellbeing will be if the factor scores are very high")
+
+# High values for all 3 factors
+sound_level = 200
+light_level = 200
+temp = 40
+
+wellbeing_if_highscores = predict_wellbeing(sound_level, light_level, temp)  
+print("\n The higher factors score wellbeing is",wellbeing_if_highscores )
+
+#AR3 Users can view data in a graphical format 
+#names of the variables and values for the chart
+variable_names = ['wellbeing if lowfactors', 'wellbeing if highfactors']
+values = [wellbeing_if_lowscores,wellbeing_if_highscores]
+
+# Creating the bar chart
+plt.bar(variable_names, values)
+
+# Adding labels and title
+plt.xlabel('Score of Factors')
+plt.ylabel('wellbeing score')
+plt.title('Bar Chart of 2 what if Predictions')
+
+# Show the plot
+plt.show()
